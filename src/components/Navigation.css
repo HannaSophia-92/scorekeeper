@@ -1,0 +1,11 @@
+.Button__navigation {
+  background-color: gray;
+  border: none;
+  padding: 8px;
+  font-size: 1em;
+  width: 30%;
+}
+
+.Button__navigation--active {
+  background-color: hotpink;
+}

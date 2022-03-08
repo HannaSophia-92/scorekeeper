@@ -1,0 +1,19 @@
+import Navigation from "./Navigation";
+
+export default {
+  title: "components/Navigation",
+  component: Navigation,
+};
+
+const Template = (args) => <Navigation {...args} />;
+
+export const Default = Template.bind({});
+Default.args = {
+  children: "Play",
+};
+
+export const Active = Template.bind({});
+Active.args = {
+  children: "History",
+  isActive: "true",
+};
