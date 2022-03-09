@@ -8,12 +8,4 @@ export default {
 const Template = (args) => <Navigation {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-  children: "Play",
-};
-
-export const Active = Template.bind({});
-Active.args = {
-  children: "History",
-  isActive: "true",
-};
+Default.args = {};
