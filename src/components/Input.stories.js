@@ -8,6 +8,4 @@ export default {
 const Template = (args) => <Input {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-  title: "Name of game",
-};
+Default.args = {};
