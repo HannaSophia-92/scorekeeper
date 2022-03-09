@@ -1,0 +1,19 @@
+import { createGlobalStyle } from "styled-components";
+
+export default createGlobalStyle`
+* {
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: sans-serif;
+    line-height: 1.5;
+  }
+  
+  input,
+  label,
+  textarea,
+  button {
+    font-size: 1em;
+  }
+`;
