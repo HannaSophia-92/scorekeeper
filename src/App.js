@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import CreateGame from "./components/CreateGame";
 import Player from "./components/Player";
+
 import { useState } from "react";
 
 function App() {
@@ -18,7 +19,6 @@ function App() {
   return (
     <>
       <h1>scorekeeper</h1>
-
       <Routes>
         <Route path="/" element={<PlayPage />} />
         <Route path="/history" element={<HistoryPage />} />
@@ -28,8 +28,8 @@ function App() {
             <CreateGamePage
               players={players}
               onPlayerNames={handlePlayerNames}
-              onDecrement={decrementPlayerScore}
-              onIncrement={incrementPlayerScore}
+              onDecrementPlayerScore={decrementPlayerScore}
+              onIncrementPlayerScore={incrementPlayerScore}
             />
           }
         />

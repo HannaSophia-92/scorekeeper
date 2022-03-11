@@ -2,8 +2,8 @@ import Player from "../components/Player";
 
 export default function CreateGamePage({
   players,
-  decrementPlayerScore,
-  incrementPlayerScore,
+  onDecrementPlayerScore,
+  onIncrementPlayerScore,
 }) {
   return (
     <>
@@ -12,8 +12,8 @@ export default function CreateGamePage({
         <Player
           name={name}
           score={score}
-          onDecrement={() => decrementPlayerScore(index)}
-          onIncrement={() => incrementPlayerScore(index)}
+          onDecrementPlayerScore={() => onDecrementPlayerScore(index)}
+          onIncrementPlayerScore={() => onIncrementPlayerScore(index)}
           key={id}
         />
       ))}
