@@ -7,7 +7,7 @@ export default function CreateGamePage({
 }) {
   return (
     <>
-      <h1>create</h1>
+      <h2>Games</h2>
       {players.map(({ name, score, id }, index) => (
         <Player
           name={name}

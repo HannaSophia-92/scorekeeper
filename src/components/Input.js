@@ -1,18 +1,30 @@
 import styled from "styled-components";
 
-export default function Input() {
+export default function Input({
+  name,
+  labelText,
+  placeholder,
+  value,
+  onChange,
+  required,
+}) {
   return (
-    <FormContainer>
-      <label htmlFor="Input-Game">Name of Game</label>
-      <input type="text" id="Input-Game" placeholder="e.g. scribble.io"></input>
-      <label htmlFor="Input-Game">Player Name</label>
-      <input type="text" id="Input-Game" placeholder="e.g. Jane Doe"></input>
-    </FormContainer>
+    <>
+      <label htmlFor={name}>{labelText}</label>
+      <InputStyled
+        type="text"
+        id={name}
+        name={name}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        required={required}
+      />
+    </>
   );
 }
 
-const FormContainer = styled.form`
-  display: flex;
-  flex-direction: column;
-  gap: 5px;
+const InputStyled = styled.input`
+  border: 2px solid #bbb;
+  height: 30px;
 `;
