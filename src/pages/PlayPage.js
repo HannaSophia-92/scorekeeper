@@ -1,5 +1,5 @@
-import Input from "../components/Input";
+import GameForm from "../components/GameForm";
 
 export default function PlayPage() {
-  return <Input />;
+  return <GameForm />;
 }

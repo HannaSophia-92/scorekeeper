@@ -4,8 +4,8 @@ import CreateGamePage from "./pages/CreateGamePage";
 import { Routes, Route } from "react-router-dom";
 import Navigation from "./components/Navigation";
 import CreateGame from "./components/CreateGame";
-import Player from "./components/Player";
 import { useState } from "react";
+import styled from "styled-components";
 
 function App() {
   const [players, setPlayers] = useState([
@@ -16,26 +16,31 @@ function App() {
   ]);
 
   return (
-    <>
-      <h1>scorekeeper</h1>
-      {players.map(({ name, score, id }, index) => (
-        <Player
-          name={name}
-          score={score}
-          onDecrement={() => decrementPlayerScore(index)}
-          onIncrement={() => incrementPlayerScore(index)}
-          key={id}
-        />
-      ))}
+    <AppLayout>
+      <Header>scorekeeper</Header>
       <Routes>
         <Route path="/" element={<PlayPage />} />
         <Route path="/history" element={<HistoryPage />} />
-        <Route path="/create" element={<CreateGamePage />} />
+        <Route
+          path="/create"
+          element={
+            <CreateGamePage
+              players={players}
+              onPlayerNames={handlePlayerNames}
+              onDecrementPlayerScore={decrementPlayerScore}
+              onIncrementPlayerScore={incrementPlayerScore}
+            />
+          }
+        />
       </Routes>
       <CreateGame />
       <Navigation />
-    </>
+    </AppLayout>
   );
+
+  function handlePlayerNames(name) {
+    setPlayers(name);
+  }
 
   function incrementPlayerScore(index) {
     const player = players[index];
@@ -56,5 +61,18 @@ function App() {
     ]);
   }
 }
+
+const AppLayout = styled.div`
+  display: grid;
+  gap: 10px;
+  padding: 20px;
+`;
+
+const Header = styled.h1`
+  margin: 10px;
+  text-align: center;
+  font-size: 1.6rem;
+  color: #1209af;
+`;
 
 export default App;

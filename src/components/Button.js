@@ -1,16 +1,12 @@
 import styled from "styled-components";
 
-export default function Button({ children, onClick, isDark }) {
-  return (
-    <ButtonStyled isDark={isDark} onClick={onClick}>
-      {children}
-    </ButtonStyled>
-  );
-}
+export default styled.button`
+  font-family: "Lexend Peta", sans-serif;
+  text-decoration: none;
+  color: black;
 
-const ButtonStyled = styled.button`
-  background-color: ${(props) => (props.isDark ? "#666" : "#ddd")};
-  color: ${(props) => (props.isDark ? "white" : "inherit")};
+  background-color: #ddd;
   border: none;
   padding: 4px 12px;
+  margin: 5px 0;
 `;

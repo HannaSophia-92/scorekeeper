@@ -3,17 +3,21 @@ import { createGlobalStyle } from "styled-components";
 export default createGlobalStyle`
 * {
     box-sizing: border-box;
+    margin: 0;
+    padding: 0;
   }
   
   body {
-    font-family: sans-serif;
-    line-height: 1.5;
-  }
+    font-family: 'Lexend Peta', sans-serif; 
+    font-size: 1rem;
+ }
   
-  input,
-  label,
-  textarea,
-  button {
-    font-size: 1em;
+ input {
+   padding-left: 2px;
+ }
+
+  h2 {
+    font-size: 1.2rem;
+    margin: 10px 0;
   }
 `;

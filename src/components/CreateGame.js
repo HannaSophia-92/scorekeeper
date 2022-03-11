@@ -7,10 +7,7 @@ export default function CreateGame() {
 
 const CreateButton = styled(NavLink)`
   text-decoration: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
+  text-align: center;
   color: black;
   width: 100%;
   background-color: #ddd;
