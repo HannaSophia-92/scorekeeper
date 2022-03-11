@@ -18,24 +18,30 @@ function App() {
   return (
     <>
       <h1>scorekeeper</h1>
-      {players.map(({ name, score, id }, index) => (
-        <Player
-          name={name}
-          score={score}
-          onDecrement={() => decrementPlayerScore(index)}
-          onIncrement={() => incrementPlayerScore(index)}
-          key={id}
-        />
-      ))}
+
       <Routes>
         <Route path="/" element={<PlayPage />} />
         <Route path="/history" element={<HistoryPage />} />
-        <Route path="/create" element={<CreateGamePage />} />
+        <Route
+          path="/create"
+          element={
+            <CreateGamePage
+              players={players}
+              onPlayerNames={handlePlayerNames}
+              onDecrement={decrementPlayerScore}
+              onIncrement={incrementPlayerScore}
+            />
+          }
+        />
       </Routes>
       <CreateGame />
       <Navigation />
     </>
   );
+
+  function handlePlayerNames(name) {
+    setPlayers(name);
+  }
 
   function incrementPlayerScore(index) {
     const player = players[index];
