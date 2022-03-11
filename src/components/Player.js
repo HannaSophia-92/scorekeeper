@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import Button from "./Button";
 
 export default function Player({
   name,
@@ -9,13 +10,13 @@ export default function Player({
   return (
     <Wrapper>
       <Name>{name}</Name>
-      <button aria-label="Decrease Score" onClick={onDecrementPlayerScore}>
+      <Button aria-label="Decrease Score" onClick={onDecrementPlayerScore}>
         -
-      </button>
+      </Button>
       <Score>{score}</Score>
-      <button aria-label="Increase Score" onClick={onIncrementPlayerScore}>
+      <Button aria-label="Increase Score" onClick={onIncrementPlayerScore}>
         +
-      </button>
+      </Button>
     </Wrapper>
   );
 }
