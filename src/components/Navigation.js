@@ -4,15 +4,30 @@ import styled from "styled-components";
 export default function Navigation() {
   return (
     <Nav>
-      <NavLink to="/">Play</NavLink>
-      <NavLink to="/history">History</NavLink>
+      <LinkStyled to="/">Play</LinkStyled>
+      <LinkStyled to="/history">History</LinkStyled>
     </Nav>
   );
 }
 
 const Nav = styled.nav`
-  border: none;
-  padding: 8px;
-  font-size: 1em;
-  width: 30%;
+  display: flex;
+  justify-content: center;
+  flex-wrap: no-wrap;
+  background: #ddd;
+  color: white;
+  height: 38px;
+`;
+
+const LinkStyled = styled(NavLink)`
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  color: black;
+  width: 100%;
+
+  &.active {
+    background-color: #666;
+  }
 `;

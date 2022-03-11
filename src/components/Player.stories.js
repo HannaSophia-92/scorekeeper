@@ -10,5 +10,5 @@ const Template = (args) => <Player {...args} />;
 export const Default = Template.bind({});
 Default.args = {
   name: "Jane Doe",
-  score: 10,
+  score: 100,
 };

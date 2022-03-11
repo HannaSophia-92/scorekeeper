@@ -4,11 +4,11 @@ export default function Player({ name, score, onDecrement, onIncrement }) {
   return (
     <Wrapper>
       <Name>{name}</Name>
-      <button className="Player__button" onClick={onDecrement}>
+      <button aria-label="Decrease Score" onClick={onDecrement}>
         -
       </button>
       <Score>{score}</Score>
-      <button className="Player__button" onClick={onIncrement}>
+      <button aria-label="Increase Score" onClick={onIncrement}>
         +
       </button>
     </Wrapper>

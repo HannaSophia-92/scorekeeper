@@ -3,6 +3,9 @@ import Button from "./Button.js";
 export default {
   title: "components/Button",
   component: Button,
+  argTypes: {
+    onClick: "onClick",
+  },
 };
 
 const Template = (args) => <Button {...args} />;
@@ -17,3 +20,6 @@ Dark.args = {
   children: "Click me",
   isDark: "true",
 };
+
+export const Create = Template.bind({});
+Create.args = {};
