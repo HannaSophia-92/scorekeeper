@@ -10,13 +10,13 @@ export default function Player({
   return (
     <Wrapper>
       <Name>{name}</Name>
-      <Button aria-label="Decrease Score" onClick={onDecrementPlayerScore}>
+      <ButtonMinus aria-label="Decrease Score" onClick={onDecrementPlayerScore}>
         -
-      </Button>
+      </ButtonMinus>
       <Score>{score}</Score>
-      <Button aria-label="Increase Score" onClick={onIncrementPlayerScore}>
+      <ButtonPlus aria-label="Increase Score" onClick={onIncrementPlayerScore}>
         +
-      </Button>
+      </ButtonPlus>
     </Wrapper>
   );
 }
@@ -32,4 +32,22 @@ const Name = styled.span`
 
 const Score = styled.span`
   margin: 5px;
+`;
+
+const ButtonPlus = styled.button`
+  background-color: seagreen;
+  text-decoration: none;
+  border: none;
+  padding: 4px 12px;
+  margin: 5px 8px;
+  color: white;
+`;
+
+const ButtonMinus = styled.button`
+  background-color: crimson;
+  text-decoration: none;
+  border: none;
+  padding: 4px 12px;
+  margin: 5px 8px;
+  color: white;
 `;

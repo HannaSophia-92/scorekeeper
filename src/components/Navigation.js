@@ -28,6 +28,7 @@ const LinkStyled = styled(NavLink)`
   width: 100%;
 
   &.active {
-    background-color: #666;
+    background-color: #1209af;
+    color: white;
   }
 `;

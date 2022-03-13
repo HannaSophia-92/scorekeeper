@@ -20,7 +20,6 @@ function App() {
       <Header>scorekeeper</Header>
       <Routes>
         <Route path="/" element={<PlayPage onCreateGame={createGame} />} />
-        <Route path="/history" element={<HistoryPage history={history} />} />
         <Route
           path="/create"
           element={
@@ -35,6 +34,7 @@ function App() {
             />
           }
         />
+        <Route path="/history" element={<HistoryPage history={history} />} />
       </Routes>
       <Navigation />
     </AppLayout>
@@ -92,6 +92,7 @@ const Header = styled.h1`
   text-align: center;
   font-size: 1.6rem;
   color: #1209af;
+  border-bottom: 2px solid #1209af;
 `;
 
 export default App;

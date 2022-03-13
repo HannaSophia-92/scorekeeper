@@ -10,6 +10,8 @@ export default createGlobalStyle`
   body {
     font-family: 'Lexend Peta', sans-serif; 
     font-size: 1rem;
+    color: lightgray;
+    background-color: black;
  }
   
  input {
