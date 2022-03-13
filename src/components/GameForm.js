@@ -3,9 +3,11 @@ import styled from "styled-components";
 import { useState } from "react";
 import Button from "./Button";
 
-export default function GameForm() {
+export default function GameForm({ onCreateGame }) {
   const [nameOfGame, setNameOfGame] = useState("");
   const [playerName, setPlayerName] = useState("");
+
+  const disabled = nameOfGame === "" || playerName === "";
 
   return (
     <Form
@@ -30,12 +32,16 @@ export default function GameForm() {
         onChange={(event) => setPlayerName(event.target.value)}
         required
       />
-      <Button>Create Game</Button>
+      <Button disabled={disabled}>Create Game</Button>
     </Form>
   );
 
   function handleSubmit(event) {
     event.preventDefault();
+    onCreateGame({
+      nameOfGame,
+      playerName: playerName.split(",").map((name) => name.trim()),
+    });
     setNameOfGame("");
     setPlayerName("");
   }
