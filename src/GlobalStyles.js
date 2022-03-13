@@ -1,4 +1,4 @@
-import { createGlobalStyle } from "styled-components";
+import { createGlobalStyle } from 'styled-components';
 
 export default createGlobalStyle`
 * {
@@ -12,6 +12,7 @@ export default createGlobalStyle`
     font-size: 1rem;
     color: lightgray;
     background-color: black;
+    max-width: 600px;
  }
   
  input {
