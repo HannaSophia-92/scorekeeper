@@ -10,6 +10,7 @@ import { nanoid } from "nanoid";
 function App() {
   const [players, setPlayers] = useState([]);
   const [nameOfGame, setNameOfGame] = useState("");
+  const [history, setHistory] = useState([]);
   const navigate = useNavigate();
 
   console.log(players);
@@ -19,7 +20,6 @@ function App() {
       <Header>scorekeeper</Header>
       <Routes>
         <Route path="/" element={<PlayPage onCreateGame={createGame} />} />
-        <Route path="/history" element={<HistoryPage />} />
         <Route
           path="/create"
           element={
@@ -29,9 +29,12 @@ function App() {
               onPlayerNames={handlePlayerNames}
               onDecrementPlayerScore={decrementPlayerScore}
               onIncrementPlayerScore={incrementPlayerScore}
+              onResetScores={resetScores}
+              onEndGame={endGame}
             />
           }
         />
+        <Route path="/history" element={<HistoryPage history={history} />} />
       </Routes>
       <Navigation />
     </AppLayout>
@@ -65,6 +68,17 @@ function App() {
       ...players.slice(index + 1),
     ]);
   }
+
+  function resetScores() {
+    setPlayers(players.map((player) => ({ ...player, score: 0 })));
+  }
+
+  function endGame() {
+    setHistory([{ players, nameOfGame, id: nanoid() }, ...history]);
+    setPlayers([]);
+    setNameOfGame("");
+    navigate("./");
+  }
 }
 
 const AppLayout = styled.div`
@@ -78,6 +92,7 @@ const Header = styled.h1`
   text-align: center;
   font-size: 1.6rem;
   color: #1209af;
+  border-bottom: 2px solid #1209af;
 `;
 
 export default App;

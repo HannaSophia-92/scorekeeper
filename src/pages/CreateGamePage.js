@@ -1,3 +1,4 @@
+import Button from "../components/Button";
 import Player from "../components/Player";
 
 export default function CreateGamePage({
@@ -5,6 +6,8 @@ export default function CreateGamePage({
   onDecrementPlayerScore,
   onIncrementPlayerScore,
   nameOfGame,
+  onResetScores,
+  onEndGame,
 }) {
   return (
     <>
@@ -19,6 +22,8 @@ export default function CreateGamePage({
           key={id}
         />
       ))}
+      <Button onClick={onResetScores}>Reset scores</Button>
+      <Button onClick={onEndGame}>End game</Button>
     </>
   );
 }
