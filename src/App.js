@@ -1,30 +1,30 @@
 import PlayPage from "./pages/PlayPage";
 import HistoryPage from "./pages/HistoryPage";
 import CreateGamePage from "./pages/CreateGamePage";
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, useNavigate } from "react-router-dom";
 import Navigation from "./components/Navigation";
-import CreateGame from "./components/CreateGame";
 import { useState } from "react";
 import styled from "styled-components";
+import { nanoid } from "nanoid";
 
 function App() {
-  const [players, setPlayers] = useState([
-    { name: "Player1", score: 0, id: "1" },
-    { name: "Player2", score: 0, id: "2" },
-    { name: "Player3", score: 0, id: "3" },
-    { name: "Player4", score: 0, id: "4" },
-  ]);
+  const [players, setPlayers] = useState([]);
+  const [nameOfGame, setNameOfGame] = useState("");
+  const navigate = useNavigate();
+
+  console.log(players);
 
   return (
     <AppLayout>
       <Header>scorekeeper</Header>
       <Routes>
-        <Route path="/" element={<PlayPage />} />
+        <Route path="/" element={<PlayPage onCreateGame={createGame} />} />
         <Route path="/history" element={<HistoryPage />} />
         <Route
           path="/create"
           element={
             <CreateGamePage
+              nameOfGame={nameOfGame}
               players={players}
               onPlayerNames={handlePlayerNames}
               onDecrementPlayerScore={decrementPlayerScore}
@@ -33,13 +33,18 @@ function App() {
           }
         />
       </Routes>
-      <CreateGame />
       <Navigation />
     </AppLayout>
   );
 
   function handlePlayerNames(name) {
     setPlayers(name);
+  }
+
+  function createGame({ nameOfGame, playerName }) {
+    setNameOfGame(nameOfGame);
+    setPlayers(playerName.map((name) => ({ name, score: 0, id: nanoid() })));
+    navigate("./create");
   }
 
   function incrementPlayerScore(index) {
