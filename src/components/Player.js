@@ -9,11 +9,14 @@ export default function Player({
   return (
     <Wrapper>
       <Name>{name}</Name>
-      <ButtonMinus aria-label="Decrease Score" onClick={onDecrementPlayerScore}>
+      <ButtonMinus
+        aria-label="Decrement Score"
+        onClick={onDecrementPlayerScore}
+      >
         -
       </ButtonMinus>
       <Score>{score}</Score>
-      <ButtonPlus aria-label="Increase Score" onClick={onIncrementPlayerScore}>
+      <ButtonPlus aria-label="Increment Score" onClick={onIncrementPlayerScore}>
         +
       </ButtonPlus>
     </Wrapper>
